@@ -1,0 +1,9 @@
+<form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+  <label for="name">Name:</label>
+  <input id="name" formControlName="name" />
+
+  <label for="description">Description:</label>
+  <input id="description" formControlName="description" />
+
+  <button type="submit" mat-button>Update</button>
+</form>
