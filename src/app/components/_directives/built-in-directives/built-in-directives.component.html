@@ -1,0 +1,35 @@
+<h1>Built in Directives</h1>
+
+<!-- ngClass -->
+<h2>ngClass</h2>
+<!-- isActive bool değeri true ise active classı uygulansın. hasError bool değeri true ise error classı uygulansın. -->
+<div [ngClass]="{ active: isActive, error: hasError }">
+  Bu elementin sınıfları dinamik olarak değişir.
+</div>
+<div>
+  <button (click)="toggleActive()">Toggle Active</button>
+  <button (click)="toggleError()">Toggle Error</button>
+</div>
+<br />
+<p>isActive:{{ isActive }}</p>
+<p>hasError:{{ hasError }}</p>
+<hr />
+
+<!-- ngStyle -->
+<h2>ngStyle</h2>
+
+<div [ngStyle]="currentStyles">
+  Bu elementin stilleri dinamik olarak değişir.
+</div>
+
+<button (click)="toggleSpecial()">Toggle Special</button>
+<hr />
+
+<!-- ngModel -->
+<h2>ngModel</h2>
+<div>
+  <input [(ngModel)]="name" placeholder="Enter your name" />
+  <p>Hello, {{ name }}!</p>
+
+  <button (click)="setName()">Set Name</button>
+</div>
