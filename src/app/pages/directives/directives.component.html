@@ -3,3 +3,40 @@
 <hr />
 
 <app-built-in-directives></app-built-in-directives>
+
+<hr />
+
+<h1>Structural Directives</h1>
+<br />
+<div>
+  <h2>appButton directive</h2>
+  <button appButton>Button</button>
+
+  <button appButton>Custom Styled Button</button>
+</div>
+
+<div>
+  <h2>noCharacterInput directive</h2>
+
+  <input
+    type="text"
+    [(ngModel)]="inputValue"
+    appAppNoCharacterInput
+    placeholder="Enter text without numbers"
+  />
+  <p>Input Value12: {{ inputValue }}</p>
+</div>
+
+<div>
+  <h2>Multiple Elements Directive</h2>
+  <div *appMultiple="3">
+    <p>This paragraph will be repeated 3 times.</p>
+  </div>
+</div>
+
+<div>
+  <h2>Welcome Directive with Delay</h2>
+  <div *appWelcome="2000"></div>
+</div>
+
+<footer class="foooter"></footer>
