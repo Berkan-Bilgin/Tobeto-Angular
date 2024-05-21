@@ -22,6 +22,8 @@ export class UpdateCategoryComponent implements OnInit {
     private categoryService: CategoryService,
     private router: Router,
   ) {
+    const { id } = this.route.snapshot.params;
+    this.categoryId = +id;
     this.updateForm = this.fb.group({
       name: [''],
       description: [''],
@@ -29,7 +31,8 @@ export class UpdateCategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryId = +(this.route.snapshot.paramMap.get('id') || 0);
+    console.log('categoryId', this.categoryId);
+    console.log('route', this.route);
     this.categoryService
       .getCategoryById(this.categoryId)
       .subscribe((category: Category) => {
@@ -42,10 +45,12 @@ export class UpdateCategoryComponent implements OnInit {
 
   onSubmit(): void {
     if (this.updateForm.valid) {
+      console.log('nedir', this.updateForm.valid);
       const updatedCategory = this.updateForm.value;
       this.categoryService
         .updateCategory(this.categoryId, updatedCategory)
         .subscribe(() => {
+          console.log('mahmut');
           this.router.navigate(['/categories']);
         });
     }

@@ -1,0 +1,15 @@
+<h1>Key Value Pipe</h1>
+
+<h3><strong>keyvalue pipe ile</strong></h3>
+<ul>
+  <p *ngFor="let item of myObject | keyvalue">
+    {{ item.key }}: {{ item.value }}
+  </p>
+</ul>
+<br />
+<h3><strong>entries ile</strong></h3>
+<ul>
+  <p *ngFor="let entry of objectEntries">{{ entry[0] }}: {{ entry[1] }}</p>
+</ul>
+<h3><strong>json pipe ile</strong></h3>
+<pre>{{ myObject | json }}</pre>
