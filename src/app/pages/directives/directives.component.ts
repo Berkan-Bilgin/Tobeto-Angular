@@ -22,4 +22,6 @@ import { AppWelcomeDirective } from '../../shared/directives/app-welcome.directi
 })
 export class DirectivesComponent {
   inputValue: string = '';
+
+  number: number = 2;
 }

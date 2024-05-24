@@ -1,36 +1,34 @@
 import {
   Directive,
-  ViewContainerRef,
-  TemplateRef,
   Input,
   Renderer2,
+  TemplateRef,
+  ViewContainerRef,
 } from '@angular/core';
 
 @Directive({
-  selector: '[appWelcome]',
   standalone: true,
+  selector: '[appWelcome]',
 })
 export class AppWelcomeDirective {
+  private welcomeMessage!: HTMLElement;
   constructor(
     private templateRef: TemplateRef<any>,
-    private viewContainer: ViewContainerRef,
+    private viewContainerRef: ViewContainerRef,
     private renderer: Renderer2,
   ) {}
 
   @Input() set appWelcome(delay: number) {
-    this.viewContainer.clear();
+    console.log('ne lan bu', this.viewContainerRef);
 
-    // "Welcome" mesajını ekle
-    const welcomeMessage =
-      this.templateRef.elementRef.nativeElement.ownerDocument.createElement(
-        'div',
-      );
-    welcomeMessage.textContent = 'Welcome';
-    this.viewContainer.element.nativeElement.appendChild(welcomeMessage);
+    this.welcomeMessage = this.renderer.createElement('h1');
+    this.renderer.setProperty(this.welcomeMessage, 'textContent', 'Welcome');
+    const containerElement = this.viewContainerRef.element.nativeElement;
+    this.renderer.appendChild(containerElement.parentNode, this.welcomeMessage);
 
     setTimeout(() => {
-      this.viewContainer.clear();
-      this.viewContainer.createEmbeddedView(this.templateRef);
+      this.renderer.destroy();
+      this.viewContainerRef.createEmbeddedView(this.templateRef);
     }, delay);
   }
 }

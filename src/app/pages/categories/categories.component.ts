@@ -3,11 +3,12 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { CategoryService } from '../../services/category.service';
 import { Category } from '../../services/category.service';
 import { RouterModule } from '@angular/router';
+import { HighlightDirective } from '../../shared/directives/highlight.directive';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [MatTableModule, RouterModule],
+  imports: [MatTableModule, RouterModule, HighlightDirective],
   templateUrl: './categories.component.html',
   styleUrl: './categories.component.css',
 })
