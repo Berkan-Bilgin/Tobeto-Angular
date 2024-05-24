@@ -26,8 +26,13 @@ export class AppWelcomeDirective {
     const containerElement = this.viewContainerRef.element.nativeElement;
     this.renderer.appendChild(containerElement.parentNode, this.welcomeMessage);
 
+    console.log(this.renderer);
+
     setTimeout(() => {
-      this.renderer.destroy();
+      this.renderer.removeChild(
+        containerElement.parentNode,
+        this.welcomeMessage,
+      );
       this.viewContainerRef.createEmbeddedView(this.templateRef);
     }, delay);
   }
