@@ -8,12 +8,20 @@ import { TranslateExampleComponent } from './pages/translate-example/translate-e
 import { DirectivesComponent } from './pages/directives/directives.component';
 import { LoginComponent } from './pages/_auth/login/login.component';
 import { SignupComponent } from './pages/_auth/signup/signup.component';
+import { FormGuardComponent } from './pages/form-guard/form-guard.component';
+import { canDeactivateGuard } from './shared/guards/can-deactivate.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent, title: 'Home' },
   { path: 'login', component: LoginComponent, title: 'Login' },
   { path: 'signup', component: SignupComponent, title: 'Signup' },
   { path: 'products', component: ProductsComponents, title: 'Products' },
+  {
+    path: 'form-guard',
+    component: FormGuardComponent,
+    title: 'Form Guard',
+    canDeactivate: [canDeactivateGuard],
+  },
 
   { path: 'pipes', component: PipesComponent, title: 'Pipes' },
   { path: 'directives', component: DirectivesComponent, title: 'Directives' },

@@ -1,0 +1,23 @@
+<p>form-guard works!</p>
+
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="productName">Product Name:</label> <br />
+    <input id="productName" formControlName="productName" />
+  </div>
+
+  <br />
+
+  <div>
+    <label for="quantity">Quantity:</label> <br />
+    <input id="quantity" formControlName="quantity" type="number" />
+  </div>
+
+  <br />
+
+  <button type="submit" [disabled]="addProductForm.invalid">Add Product</button>
+</form>
+
+<p>Form Status: {{ addProductForm.status }}</p>
+
+<p>Form Status (dirty): {{ addProductForm.dirty }}</p>

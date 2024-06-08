@@ -7,8 +7,13 @@
       <li><a routerLink="/pipes">Pipes</a></li>
       <li><a routerLink="/translate">Translate</a></li>
       <li><a routerLink="/directives">Directives</a></li>
+      <li><a routerLink="/form-guard">Form Guard</a></li>
+
       <li class="login-link"><a routerLink="/login">Login</a></li>
       <li class="login-link"><a routerLink="/signup">Signup</a></li>
+      <li>{{ loader | async }}</li>
+
+      <button (click)="showLoader()">Deneme</button>
     </ul>
   </nav>
 </header>
